@@ -6,13 +6,14 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Html from '../images/html5.png'
 import Css from '../images/css.png'
 import Js from '../images/javascript.png'
+import Josh5 from '../images/Josh5.jpg'
 
 export default function AboutMe() {
     return (
         <div>
         <div className="grid md:grid-cols-2 max-w-[1240px] mx-auto font-poppins my-28">
             <div className="">
-                <img className="md:w-[400px] w-[350px] md:h-[500px] h-[450px] my-20 mx-auto  animate-trans-up rounded-full shadow-2xl shadow-black"src="\src\images\Josh5.jpg" alt="" />
+                <img className="md:w-[400px] w-[350px] md:h-[500px] h-[450px] my-20 mx-auto  animate-trans-up rounded-full shadow-2xl shadow-black"src={Josh5} alt="" />
             </div>
             <div className="flex flex-col justify-center">
                 <p className="uppercase text-gray-800 font-bold md:text-4xl sm:text-3xl text-2xl">About Me</p>
