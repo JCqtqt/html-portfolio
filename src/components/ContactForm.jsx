@@ -12,6 +12,7 @@ const field =
 
 export default function ContactForm() {
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [note, setNote] = useState("");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const update = (e) => setForm({ ...form, [e.target.name]: e.target.value });
@@ -20,6 +21,7 @@ export default function ContactForm() {
     e.preventDefault();
     if (e.target._honey.value) return; // spam bot filled the hidden field
     setStatus("sending");
+    setNote("");
     try {
       const res = await fetch(ENDPOINT, {
         method: "POST",
@@ -32,10 +34,14 @@ export default function ContactForm() {
         }),
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok || data.success === "false" || data.success === false) throw new Error();
+      if (!res.ok || data.success === "false" || data.success === false) {
+        // e.g. "This form needs Activation…" on the very first message
+        throw new Error(data.message || "");
+      }
       setStatus("sent");
       setForm({ name: "", email: "", message: "" });
-    } catch {
+    } catch (err) {
+      setNote(/activat/i.test(err.message) ? err.message : "");
       setStatus("error");
     }
   };
@@ -78,6 +84,7 @@ export default function ContactForm() {
 
       {status === "error" && (
         <p className="rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-600 dark:text-red-400">
+          {note && <span className="mb-1 block font-semibold">{note}</span>}
           Sorry, the message couldn&apos;t be sent. Please email me directly at{" "}
           <a href={`mailto:${profile.email}`} className="font-semibold underline">{profile.email}</a>.
         </p>
