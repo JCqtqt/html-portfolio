@@ -5,21 +5,21 @@
 
 @layer base {
   :root {
-    --ink: 14 19 32;
-    --muted: 91 98 112;
-    --line: 230 228 221;
-    --paper: 250 249 246;
+    --ink: 10 10 10;
+    --muted: 82 82 82;
+    --line: 229 229 229;
+    --paper: 255 255 255;
     --card: 255 255 255;
-    --band: 14 19 32;
+    --band: 10 10 10;
     color-scheme: light;
   }
   .dark {
-    --ink: 236 238 242;
-    --muted: 154 160 172;
-    --line: 40 45 56;
-    --paper: 10 12 17;
-    --card: 19 22 30;
-    --band: 22 26 35;
+    --ink: 250 250 250;
+    --muted: 163 163 163;
+    --line: 38 38 38;
+    --paper: 10 10 10;
+    --card: 20 20 20;
+    --band: 23 23 23;
     color-scheme: dark;
   }
   html { scroll-behavior: smooth; }
@@ -33,7 +33,7 @@
 @layer components {
   .container-x { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
   .btn { @apply inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-200; }
-  .btn-dark { @apply btn bg-ink text-paper hover:bg-ink/80; }
+  .btn-dark { @apply btn bg-[#0A0A0A] text-accent hover:bg-[#262626] dark:bg-accent dark:text-[#0A0A0A] dark:hover:bg-[#FFE04D]; }
   .btn-ghost { @apply btn border border-line bg-card text-ink hover:border-ink/40; }
   .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.18em] text-muted; }
   .chip { @apply rounded-full border border-line bg-card px-3 py-1 text-xs font-medium text-muted; }

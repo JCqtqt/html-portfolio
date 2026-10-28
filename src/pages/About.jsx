@@ -4,6 +4,15 @@ import Portrait from "../components/Portrait";
 import { profile } from "../data/profile";
 import { experience, skills, certifications, education, softSkills } from "../data/resume";
 import Socials from "../components/Socials";
+import LogoFull from "../images/josh-logo-yellow-lg.png";
+
+const logoMeaning = [
+  ["Stacked letters.", "Bold varsity-style letters fit together into one solid shape: small parts built into something that holds up."],
+  ["Dark background.", "The technical side of my work: the servers, networks and systems that quietly keep a business running."],
+  ["White letters.", "Clean and easy to read, because good technology should feel simple to the people using it."],
+  ["Yellow border.", "A steady frame, the way good support holds everything inside it together."],
+  ["The yellow dot.", "A full stop, not an ellipsis: every ticket closed, every app shipped, every job finished."],
+];
 
 function Block({ title, children }) {
   return (
@@ -131,6 +140,19 @@ export default function About() {
               <li key={s} className="chip text-sm">{s}</li>
             ))}
           </ul>
+        </Block>
+
+        <Block title="The logo">
+          <div className="grid items-center gap-8 md:grid-cols-[220px_1fr]">
+            <img src={LogoFull} alt="JOSH. logo" className="mx-auto w-44 md:w-full" />
+            <ul className="flex flex-col gap-4 leading-relaxed text-muted">
+              {logoMeaning.map(([title, text]) => (
+                <li key={title}>
+                  <span className="font-semibold text-ink">{title}</span> {text}
+                </li>
+              ))}
+            </ul>
+          </div>
         </Block>
 
         <div className="mt-4 flex flex-col items-start justify-between gap-4 rounded-3xl bg-band px-6 py-8 text-white sm:flex-row sm:items-center sm:px-10">

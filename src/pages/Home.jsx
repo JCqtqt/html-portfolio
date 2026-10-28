@@ -6,6 +6,7 @@ import { profile, stack } from "../data/profile";
 import { projects } from "../data/projects";
 import ProjectCard from "../components/ProjectCard";
 import Marquee from "../components/Marquee";
+import HeroCircuit from "../components/HeroCircuit";
 import { skills } from "../data/resume";
 
 const itSkills = [...new Set(skills.flatMap((g) => g.items))];
@@ -28,7 +29,7 @@ function TypedName() {
 
   const cursor = (
     <span className="relative inline-block w-0 align-baseline" aria-hidden="true">
-      <span className="type-cursor absolute bottom-[0.06em] left-[0.04em] h-[0.78em] w-[0.09em] rounded-full bg-accent" />
+      <span className="type-cursor absolute bottom-[0.06em] left-[0.04em] h-[0.78em] w-[0.09em] rounded-full bg-[#0A0A0A] dark:bg-white" />
     </span>
   );
 
@@ -36,7 +37,7 @@ function TypedName() {
   return (
     <h1
       aria-label={profile.name}
-      className="rise mt-6 font-display font-extrabold uppercase leading-[0.9] tracking-tight"
+      className="rise mt-6 font-display font-extrabold uppercase leading-[0.9] tracking-tight text-[#0A0A0A] dark:text-accent"
       style={{ fontSize: "clamp(2.75rem, 8.6vw, 7.75rem)" }}
     >
       {NAME_LINES.map((line, li) => (
@@ -60,33 +61,41 @@ function TypedName() {
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="container-x pb-20 pt-12 md:pt-16">
-        <p className="rise eyebrow flex items-center gap-2">
-          <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-500" /> {profile.role} · Open to new projects
-        </p>
+      {/* Hero — yellow spotlight (black in dark mode) */}
+      <section className="relative mb-24 overflow-hidden bg-accent text-[#0A0A0A] dark:border-b dark:border-line dark:bg-[#0A0A0A] dark:text-white">
+        <HeroCircuit />
+        <div className="container-x relative pb-20 pt-12 md:pt-16">
+          <p className="rise flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#0A0A0A]/70 dark:text-white/60">
+            <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-600 dark:bg-emerald-400" /> {profile.role} · Open to new projects
+          </p>
 
-        <TypedName />
+          <TypedName />
 
-        <div className="mt-12 grid items-center gap-10 md:grid-cols-[1.4fr_1fr]">
-          <div className="rise [animation-delay:120ms]">
-            <p className="max-w-xl text-xl leading-relaxed text-muted">
-              I build <span className="font-semibold text-ink">web apps that real businesses use every day</span>,
-              and keep the networks and systems behind them running. Most recently: the inventory system and
-              birthday club for The Cup of Faith Coffee Shop.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/work" className="btn-dark">
-                See my work <FiArrowRight />
-              </Link>
-              <Link to="/contact" className="btn-ghost">
-                Get in touch
-              </Link>
+          <div className="mt-12 grid items-center gap-10 md:grid-cols-[1.4fr_1fr]">
+            <div className="rise [animation-delay:120ms]">
+              <p className="max-w-xl text-xl leading-relaxed text-[#0A0A0A]/75 dark:text-white/70">
+                I build <span className="font-semibold text-[#0A0A0A] dark:text-white">web apps that real businesses use every day</span>,
+                and keep the networks and systems behind them running. Most recently: the inventory system and
+                birthday club for The Cup of Faith Coffee Shop.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link to="/work" className="btn-dark">
+                  See my work <FiArrowRight />
+                </Link>
+                <Link
+                  to="/contact"
+                  className="btn border-2 border-[#0A0A0A] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-accent dark:border-white/30 dark:text-white dark:hover:border-accent dark:hover:bg-transparent dark:hover:text-accent"
+                >
+                  Get in touch
+                </Link>
+              </div>
             </div>
-          </div>
-          <div className="rise relative mx-auto w-full max-w-xs [animation-delay:200ms] md:ml-auto md:mr-0">
-            <div className="absolute -inset-3 -z-10 rotate-3 rounded-[2rem] bg-accent/25 dark:border-2 dark:border-accent/70 dark:bg-transparent" />
-            <Portrait className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-xl" />
+            <div className="rise relative mx-auto w-full max-w-xs [animation-delay:200ms] md:ml-auto md:mr-0">
+              <div className="absolute -inset-3 -z-0 rotate-3 rounded-[2rem] bg-[#0A0A0A] dark:border-2 dark:border-accent dark:bg-transparent" />
+              <div className="relative">
+                <Portrait className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-xl" />
+              </div>
+            </div>
           </div>
         </div>
       </section>

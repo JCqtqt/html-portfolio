@@ -13,7 +13,7 @@ export default {
         paper: v("paper"),
         card: v("card"),
         band: v("band"),
-        accent: "#F5B800",
+        accent: "#FFD400",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
