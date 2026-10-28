@@ -1,4 +1,4 @@
-import Light from "../images/josh-portrait.webp";
+import Light from "../images/josh-portrait-light.webp";
 import Dark from "../images/josh-portrait-dark.webp";
 import { profile } from "../data/profile";
 

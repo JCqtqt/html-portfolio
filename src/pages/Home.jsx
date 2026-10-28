@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
 import Portrait from "../components/Portrait";
@@ -9,41 +10,84 @@ import { skills } from "../data/resume";
 
 const itSkills = [...new Set(skills.flatMap((g) => g.items))];
 
+// The big hero name, typed out letter by letter with a blinking cursor.
+// Every letter is laid out from the start (just invisible), so nothing jumps.
+const NAME_LINES = ["Joshua Carlo", "Famularcano"];
+const TOTAL = NAME_LINES.join("").length;
+
+function TypedName() {
+  const reduce =
+    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const [count, setCount] = useState(reduce ? TOTAL : 0);
+
+  useEffect(() => {
+    if (count >= TOTAL) return;
+    const t = setTimeout(() => setCount((c) => c + 1), count === 0 ? 450 : 85);
+    return () => clearTimeout(t);
+  }, [count]);
+
+  const cursor = (
+    <span className="relative inline-block w-0 align-baseline" aria-hidden="true">
+      <span className="type-cursor absolute bottom-[0.06em] left-[0.04em] h-[0.78em] w-[0.09em] rounded-full bg-accent" />
+    </span>
+  );
+
+  let index = 0;
+  return (
+    <h1
+      aria-label={profile.name}
+      className="rise mt-6 font-display font-extrabold uppercase leading-[0.9] tracking-tight"
+      style={{ fontSize: "clamp(2.75rem, 8.6vw, 7.75rem)" }}
+    >
+      {NAME_LINES.map((line, li) => (
+        <span key={line} className="block whitespace-nowrap" aria-hidden="true">
+          {li === 0 && count === 0 && cursor}
+          {line.split("").map((ch) => {
+            const i = index++;
+            return (
+              <span key={i}>
+                <span className={i < count ? "" : "opacity-0"}>{ch}</span>
+                {i === count - 1 && cursor}
+              </span>
+            );
+          })}
+        </span>
+      ))}
+    </h1>
+  );
+}
+
 export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="container-x grid items-center gap-12 pb-20 pt-14 md:grid-cols-[1.25fr_1fr] md:pt-24">
-        <div className="rise">
-          <p className="eyebrow flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-emerald-500" /> Open to new projects
-          </p>
-          <h1 className="mt-5 text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-6xl">
-            Hi, I&apos;m {profile.short}. I build{" "}
-            <span className="relative whitespace-nowrap">
-              <span className="relative z-10">web apps</span>
-              <span className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/60 sm:h-4 dark:-bottom-1 dark:h-1.5 dark:bg-accent sm:dark:h-2" />
-            </span>{" "}
-            that real businesses use every day.
-          </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
-            I&apos;m {profile.name}, an IT support specialist and web developer with a degree in Information Technology.
-            Most recently I built the inventory system and birthday club for The Cup of Faith
-            Coffee Shop.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/work" className="btn-dark">
-              See my work <FiArrowRight />
-            </Link>
-            <Link to="/contact" className="btn-ghost">
-              Get in touch
-            </Link>
-          </div>
-        </div>
+      <section className="container-x pb-20 pt-12 md:pt-16">
+        <p className="rise eyebrow flex items-center gap-2">
+          <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-500" /> {profile.role} · Open to new projects
+        </p>
 
-        <div className="rise relative mx-auto w-full max-w-sm [animation-delay:120ms]">
-          <div className="absolute -inset-3 -z-10 rotate-3 rounded-[2rem] bg-accent/25 dark:border-2 dark:border-accent/70 dark:bg-transparent" />
-          <Portrait className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-xl" />
+        <TypedName />
+
+        <div className="mt-12 grid items-center gap-10 md:grid-cols-[1.4fr_1fr]">
+          <div className="rise [animation-delay:120ms]">
+            <p className="max-w-xl text-xl leading-relaxed text-muted">
+              I build <span className="font-semibold text-ink">web apps that real businesses use every day</span>,
+              and keep the networks and systems behind them running. Most recently: the inventory system and
+              birthday club for The Cup of Faith Coffee Shop.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/work" className="btn-dark">
+                See my work <FiArrowRight />
+              </Link>
+              <Link to="/contact" className="btn-ghost">
+                Get in touch
+              </Link>
+            </div>
+          </div>
+          <div className="rise relative mx-auto w-full max-w-xs [animation-delay:200ms] md:ml-auto md:mr-0">
+            <div className="absolute -inset-3 -z-10 rotate-3 rounded-[2rem] bg-accent/25 dark:border-2 dark:border-accent/70 dark:bg-transparent" />
+            <Portrait className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-xl" />
+          </div>
         </div>
       </section>
 

@@ -46,6 +46,10 @@
 .rise { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; }
 @media (prefers-reduced-motion: reduce) { .rise { animation: none; } html { scroll-behavior: auto; } }
 
+/* Blinking cursor for the typed hero name */
+@keyframes blink { 0%, 45% { opacity: 1; } 50%, 95% { opacity: 0; } 100% { opacity: 1; } }
+.type-cursor { animation: blink 1s step-end infinite; }
+
 /* Auto-scrolling skill rows */
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -59,7 +63,7 @@
   mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
+  .marquee-track { animation: none !important; flex-wrap: wrap; width: auto; }
   .marquee-dup { display: none; }
   .marquee-mask { -webkit-mask-image: none; mask-image: none; }
 }
