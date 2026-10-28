@@ -22,8 +22,8 @@ export default function Socials({ size = 18, withLabels = false }) {
               aria-label={label}
               className={
                 withLabels
-                  ? "flex items-center gap-3 rounded-2xl border border-line bg-white px-5 py-4 font-medium transition hover:border-ink/40"
-                  : "grid h-9 w-9 place-items-center rounded-full border border-line bg-white text-muted transition hover:border-ink/40 hover:text-ink"
+                  ? "flex items-center gap-3 rounded-2xl border border-line bg-card px-5 py-4 font-medium transition hover:border-ink/40"
+                  : "grid h-9 w-9 place-items-center rounded-full border border-line bg-card text-muted transition hover:border-ink/40 hover:text-ink"
               }
             >
               <Icon size={size} />

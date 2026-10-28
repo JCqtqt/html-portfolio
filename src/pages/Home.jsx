@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
-import Portrait from "../images/josh-portrait.webp";
+import Portrait from "../components/Portrait";
 import { profile, stack } from "../data/profile";
 import { projects } from "../data/projects";
 import ProjectCard from "../components/ProjectCard";
@@ -18,12 +18,12 @@ export default function Home() {
             Hi, I&apos;m {profile.short}. I build{" "}
             <span className="relative whitespace-nowrap">
               <span className="relative z-10">web apps</span>
-              <span className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/60 sm:h-4" />
+              <span className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/60 sm:h-4 dark:-bottom-1 dark:h-1.5 dark:bg-accent sm:dark:h-2" />
             </span>{" "}
             that real businesses use every day.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
-            I&apos;m {profile.name}, a web developer with a degree in Information Technology.
+            I&apos;m {profile.name}, an IT support specialist and web developer with a degree in Information Technology.
             Most recently I built the inventory system and birthday club for The Cup of Faith
             Coffee Shop.
           </p>
@@ -38,12 +38,8 @@ export default function Home() {
         </div>
 
         <div className="rise relative mx-auto w-full max-w-sm [animation-delay:120ms]">
-          <div className="absolute -inset-3 -z-10 rotate-3 rounded-[2rem] bg-accent/25" />
-          <img
-            src={Portrait}
-            alt={profile.name}
-            className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-xl"
-          />
+          <div className="absolute -inset-3 -z-10 rotate-3 rounded-[2rem] bg-accent/25 dark:border-2 dark:border-accent/70 dark:bg-transparent" />
+          <Portrait className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-xl" />
         </div>
       </section>
 
@@ -67,7 +63,7 @@ export default function Home() {
 
       {/* Stack */}
       <section className="container-x mt-24">
-        <div className="rounded-3xl bg-ink px-6 py-12 text-white sm:px-12">
+        <div className="rounded-3xl bg-band px-6 py-12 text-white sm:px-12">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Toolbox</p>
           <h2 className="mt-2 text-3xl font-bold sm:text-4xl">What I work with</h2>
           <ul className="mt-8 flex flex-wrap gap-3">

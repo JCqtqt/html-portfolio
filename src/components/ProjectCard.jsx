@@ -3,8 +3,8 @@ import { FiArrowUpRight } from "react-icons/fi";
 
 export default function ProjectCard({ project }) {
   return (
-    <article className="group flex flex-col overflow-hidden rounded-3xl border border-line bg-white transition hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(14,19,32,0.25)]">
-      <Link to={`/work#${project.slug}`} className="block overflow-hidden bg-[#EEF1F8]">
+    <article className="group flex flex-col overflow-hidden rounded-3xl border border-line bg-card transition hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(14,19,32,0.25)]">
+      <Link to={`/work#${project.slug}`} className="block overflow-hidden bg-line/50">
         <img
           src={project.cover}
           alt={project.shots[0].alt}

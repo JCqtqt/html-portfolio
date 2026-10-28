@@ -4,9 +4,27 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --ink: 14 19 32;
+    --muted: 91 98 112;
+    --line: 230 228 221;
+    --paper: 250 249 246;
+    --card: 255 255 255;
+    --band: 14 19 32;
+    color-scheme: light;
+  }
+  .dark {
+    --ink: 236 238 242;
+    --muted: 154 160 172;
+    --line: 40 45 56;
+    --paper: 10 12 17;
+    --card: 19 22 30;
+    --band: 22 26 35;
+    color-scheme: dark;
+  }
   html { scroll-behavior: smooth; }
   body {
-    @apply bg-paper text-ink font-sans antialiased;
+    @apply bg-paper text-ink font-sans antialiased transition-colors duration-300;
   }
   h1, h2, h3 { @apply font-display tracking-tight; }
   ::selection { @apply bg-accent/40; }
@@ -15,10 +33,10 @@
 @layer components {
   .container-x { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
   .btn { @apply inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-200; }
-  .btn-dark { @apply btn bg-ink text-white hover:bg-ink/80; }
-  .btn-ghost { @apply btn border border-line bg-white text-ink hover:border-ink/40; }
+  .btn-dark { @apply btn bg-ink text-paper hover:bg-ink/80; }
+  .btn-ghost { @apply btn border border-line bg-card text-ink hover:border-ink/40; }
   .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.18em] text-muted; }
-  .chip { @apply rounded-full border border-line bg-white px-3 py-1 text-xs font-medium text-muted; }
+  .chip { @apply rounded-full border border-line bg-card px-3 py-1 text-xs font-medium text-muted; }
 }
 
 @keyframes rise {

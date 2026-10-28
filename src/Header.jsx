@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-import Logo from "./images/Joshlogo.png";
+import Logo from "./images/josh-logo-bw.png";
+import ThemeToggle from "./components/ThemeToggle";
 
 const nav = [
   { to: "/", label: "Home", end: true },
@@ -17,16 +18,18 @@ export default function Header() {
 
   const linkClass = ({ isActive }) =>
     `rounded-full px-4 py-2 text-sm font-medium transition ${
-      isActive ? "bg-ink text-white" : "text-muted hover:text-ink"
+      isActive ? "bg-ink text-paper" : "text-muted hover:text-ink"
     }`;
 
   return (
     <header className="sticky top-0 z-30 border-b border-line/70 bg-paper/80 backdrop-blur-md">
       <div className="container-x flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2" aria-label="Home">
-          <img src={Logo} alt="Josh." className="h-9 w-auto" />
+        <Link to="/" className="flex items-center gap-3" aria-label="Home">
+          <img src={Logo} alt="Josh." className="h-10 w-10 rounded-[9px] dark:ring-1 dark:ring-line" />
+          <span className="hidden font-display text-sm font-bold sm:inline">Josh Famularcano</span>
         </Link>
 
+        <div className="flex items-center gap-2">
         <nav className="hidden items-center gap-1 md:flex">
           {nav.map((n) => (
             <NavLink key={n.to} to={n.to} end={n.end} className={linkClass}>
@@ -34,6 +37,7 @@ export default function Header() {
             </NavLink>
           ))}
         </nav>
+        <ThemeToggle />
 
         <button
           onClick={() => setOpen(!open)}
@@ -43,6 +47,7 @@ export default function Header() {
         >
           {open ? <FiX size={22} /> : <FiMenu size={22} />}
         </button>
+        </div>
       </div>
 
       {open && (
@@ -54,7 +59,7 @@ export default function Header() {
               end={n.end}
               className={({ isActive }) =>
                 `rounded-xl px-4 py-3 text-base font-medium ${
-                  isActive ? "bg-ink text-white" : "text-ink hover:bg-white"
+                  isActive ? "bg-ink text-paper" : "text-ink hover:bg-card"
                 }`
               }
             >

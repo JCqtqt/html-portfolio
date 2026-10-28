@@ -1,13 +1,18 @@
 /** @type {import('tailwindcss').Config} */
+const v = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 export default {
+  darkMode: "class",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        ink: "#0E1320",
-        muted: "#5B6270",
-        line: "#E6E4DD",
-        paper: "#FAF9F6",
+        ink: v("ink"),
+        muted: v("muted"),
+        line: v("line"),
+        paper: v("paper"),
+        card: v("card"),
+        band: v("band"),
         accent: "#F5B800",
       },
       fontFamily: {

@@ -50,7 +50,7 @@ export default function Work() {
 
               <div className="flex flex-col gap-6">
                 {p.shots.map((s) => (
-                  <figure key={s.alt} className="overflow-hidden rounded-2xl border border-line bg-white shadow-sm">
+                  <figure key={s.alt} className="overflow-hidden rounded-2xl border border-line bg-card shadow-sm">
                     <div className="flex items-center gap-1.5 border-b border-line bg-paper px-4 py-2.5">
                       <span className="h-2.5 w-2.5 rounded-full bg-line" />
                       <span className="h-2.5 w-2.5 rounded-full bg-line" />
