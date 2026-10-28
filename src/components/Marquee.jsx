@@ -5,7 +5,7 @@ export default function Marquee({ items, reverse = false, speed = 4 }) {
   let row = items;
   while (row.length < 14) row = row.concat(items);
   const duration = `${Math.max(row.length * speed, 20)}s`;
-  const pill = "shrink-0 whitespace-nowrap rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-medium text-white/90";
+  const pill = "shrink-0 whitespace-nowrap rounded-full border border-accent/50 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent hover:text-[#0A0A0A]";
 
   return (
     <div className="marquee-mask group overflow-hidden">

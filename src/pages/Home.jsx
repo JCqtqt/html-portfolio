@@ -121,9 +121,9 @@ export default function Home() {
       {/* Stack */}
       <section className="container-x mt-24">
         <div className="grid grid-cols-1 gap-6">
-          <div className="rise min-w-0 overflow-hidden rounded-3xl bg-band py-12 text-white">
+          <div className="rise min-w-0 overflow-hidden rounded-3xl border-t-4 border-accent bg-band py-12 text-white">
             <div className="px-6 sm:px-12">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Toolbox</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">// Toolbox</p>
               <h2 className="mt-2 text-3xl font-bold sm:text-4xl">What I work with</h2>
             </div>
             <div className="mt-8 px-2 sm:px-6">
@@ -131,9 +131,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="rise min-w-0 overflow-hidden rounded-3xl bg-band py-12 text-white [animation-delay:120ms]">
+          <div className="rise min-w-0 overflow-hidden rounded-3xl border-t-4 border-accent bg-band py-12 text-white [animation-delay:120ms]">
             <div className="px-6 sm:px-12">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">IT &amp; networking</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">// IT &amp; networking</p>
               <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Technical skills</h2>
             </div>
             <div className="mt-8 flex flex-col gap-3 px-2 sm:px-6">
