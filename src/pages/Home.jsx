@@ -72,7 +72,7 @@ export default function Home() {
           <h2 className="mt-2 text-3xl font-bold sm:text-4xl">What I work with</h2>
           <ul className="mt-8 flex flex-wrap gap-3">
             {stack.map((s) => (
-              <li key={s} className="rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white/90">
+              <li key={s} className="rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-white/90">
                 {s}
               </li>
             ))}
