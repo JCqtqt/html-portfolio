@@ -3,13 +3,13 @@
 export const profile = {
   name: "Joshua Carlo Famularcano",
   short: "Josh",
-  role: "Web Developer",
-  email: "", // e.g. "you@email.com" — shows an "Email me" button on Contact
+  role: "IT Support & Web Developer",
+  email: "famularcano.joshuacarlo@gmail.com",
   links: {
     github: "https://github.com/JCqtqt",
-    linkedin: "",
-    facebook: "",
-    instagram: "",
+    linkedin: "https://www.linkedin.com/in/joshua-carlo-famularcano-18a06423b",
+    facebook: "https://www.facebook.com/jcfamularcano24",
+    instagram: "https://www.instagram.com/jhayceethegreat/",
   },
 };
 

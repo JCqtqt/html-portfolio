@@ -4,6 +4,10 @@ import Portrait from "../components/Portrait";
 import { profile, stack } from "../data/profile";
 import { projects } from "../data/projects";
 import ProjectCard from "../components/ProjectCard";
+import Marquee from "../components/Marquee";
+import { skills } from "../data/resume";
+
+const itSkills = [...new Set(skills.flatMap((g) => g.items))];
 
 export default function Home() {
   return (
@@ -63,16 +67,27 @@ export default function Home() {
 
       {/* Stack */}
       <section className="container-x mt-24">
-        <div className="rounded-3xl bg-band px-6 py-12 text-white sm:px-12">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Toolbox</p>
-          <h2 className="mt-2 text-3xl font-bold sm:text-4xl">What I work with</h2>
-          <ul className="mt-8 flex flex-wrap gap-3">
-            {stack.map((s) => (
-              <li key={s} className="rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-white/90">
-                {s}
-              </li>
-            ))}
-          </ul>
+        <div className="grid grid-cols-1 gap-6">
+          <div className="rise min-w-0 overflow-hidden rounded-3xl bg-band py-12 text-white">
+            <div className="px-6 sm:px-12">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Toolbox</p>
+              <h2 className="mt-2 text-3xl font-bold sm:text-4xl">What I work with</h2>
+            </div>
+            <div className="mt-8 px-2 sm:px-6">
+              <Marquee items={stack} />
+            </div>
+          </div>
+
+          <div className="rise min-w-0 overflow-hidden rounded-3xl bg-band py-12 text-white [animation-delay:120ms]">
+            <div className="px-6 sm:px-12">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">IT &amp; networking</p>
+              <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Technical skills</h2>
+            </div>
+            <div className="mt-8 flex flex-col gap-3 px-2 sm:px-6">
+              <Marquee items={itSkills.slice(0, Math.ceil(itSkills.length / 2))} reverse />
+              <Marquee items={itSkills.slice(Math.ceil(itSkills.length / 2))} />
+            </div>
+          </div>
         </div>
       </section>
 

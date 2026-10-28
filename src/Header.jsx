@@ -26,7 +26,6 @@ export default function Header() {
       <div className="container-x flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-3" aria-label="Home">
           <img src={Logo} alt="Josh." className="h-10 w-10 rounded-[9px] dark:ring-1 dark:ring-line" />
-          <span className="hidden font-display text-sm font-bold sm:inline">Josh Famularcano</span>
         </Link>
 
         <div className="flex items-center gap-2">
