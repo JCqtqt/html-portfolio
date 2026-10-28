@@ -2,6 +2,8 @@ import invDashboard from "../images/work/inventory-dashboard.webp";
 import invRecord from "../images/work/inventory-record.webp";
 import bdaySignup from "../images/work/birthday-signup.webp";
 import bdayStaff from "../images/work/birthday-staff.webp";
+import invThumb from "../images/work/inventory-thumb.webp";
+import bdayThumb from "../images/work/birthday-thumb.webp";
 
 export const projects = [
   {
@@ -13,7 +15,7 @@ export const projects = [
       "A multi-branch inventory system that shows the team what's in stock, what's running low and what's selling — across six branches.",
     url: "https://thecupoffaithinventory.netlify.app/",
     tags: ["Web app", "Inventory", "Multi-branch", "Netlify"],
-    cover: invDashboard,
+    cover: invThumb,
     shots: [
       { src: invDashboard, alt: "Inventory dashboard with stock value, low-stock alerts and branch overview" },
       { src: invRecord, alt: "Record screen for logging usage, deliveries, wastage and transfers" },
@@ -35,7 +37,7 @@ export const projects = [
       "A loyalty sign-up page where customers register for a free birthday drink, plus a staff dashboard that sends the greetings automatically.",
     url: "https://cupoffaith-birthday-club.thecupoffaith.workers.dev/",
     tags: ["Web app", "Loyalty", "Automation", "Cloudflare Workers"],
-    cover: bdaySignup,
+    cover: bdayThumb,
     shots: [
       { src: bdaySignup, alt: "Customer sign-up form for the birthday club" },
       { src: bdayStaff, alt: "Staff dashboard listing today's and upcoming birthdays" },
