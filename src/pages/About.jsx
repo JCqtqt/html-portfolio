@@ -4,6 +4,7 @@ import Portrait from "../components/Portrait";
 import { profile } from "../data/profile";
 import { experience, skills, certifications, education, softSkills } from "../data/resume";
 import Socials from "../components/Socials";
+import { Banner, bannerEyebrow, bannerTitle, bannerText, bannerOutline } from "../components/PageBanner";
 import LogoFull from "../images/josh-logo-yellow-lg.png";
 
 const logoMeaning = [
@@ -26,17 +27,21 @@ function Block({ title, children }) {
 export default function About() {
   return (
     <>
-      <section className="container-x grid gap-12 pb-16 pt-14 md:grid-cols-[1fr_1.3fr] md:pt-20">
-        <div className="mx-auto w-full max-w-sm md:mx-0">
-          <Portrait className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-xl" />
+      <Banner code="$ whoami  →  josh" className="mb-16">
+      <div className="grid gap-12 pb-16 pt-14 md:grid-cols-[1fr_1.3fr] md:pb-20 md:pt-20">
+        <div className="relative mx-auto w-full max-w-sm self-center md:mx-0">
+          <div className="absolute -inset-3 rotate-3 rounded-[2.4rem] bg-[#0A0A0A] dark:border-2 dark:border-accent dark:bg-transparent" />
+          <div className="relative">
+            <Portrait className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-xl" />
+          </div>
         </div>
 
         <div className="rise">
-          <p className="eyebrow">About me</p>
-          <h1 className="mt-3 text-4xl font-extrabold leading-tight sm:text-5xl">{profile.name}</h1>
-          <p className="mt-2 text-lg font-medium text-muted">{profile.role}</p>
+          <p className={bannerEyebrow}>// 03 · About me</p>
+          <h1 className={`mt-3 text-4xl sm:text-5xl ${bannerTitle}`}>{profile.name}</h1>
+          <p className="mt-2 text-lg font-semibold text-[#0A0A0A]/80 dark:text-white/80">{profile.role}</p>
 
-          <div className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-muted">
+          <div className={`mt-8 flex flex-col gap-5 ${bannerText}`}>
             <p>
               I&apos;m an IT support specialist and web developer with a degree in Information
               Technology. At Cybersoft Content Services I kept users, networks and servers running:
@@ -58,10 +63,11 @@ export default function About() {
             <a href="#resume" onClick={(e) => { e.preventDefault(); document.getElementById("resume")?.scrollIntoView({ behavior: "smooth" }); }} className="btn-dark">
               View resume <FiArrowRight />
             </a>
-            <Link to="/work" className="btn-ghost">See my work</Link>
+            <Link to="/work" className={bannerOutline}>See my work</Link>
           </div>
         </div>
-      </section>
+      </div>
+      </Banner>
 
       <section id="resume" className="container-x scroll-mt-20">
         <div className="pb-4">
@@ -73,7 +79,7 @@ export default function About() {
           <ol className="flex flex-col gap-10">
             {experience.map((job) => (
               <li key={job.company} className="relative border-l-2 border-line pl-6">
-                <span className="absolute -left-[7px] top-1.5 h-3 w-3 rounded-full bg-ink ring-4 ring-paper" />
+                <span className="absolute -left-[7px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-[#0A0A0A] bg-accent ring-4 ring-paper dark:border-accent" />
                 <div className="flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline">
                   <h3 className="text-xl font-bold">{job.role}</h3>
                   <p className="text-sm font-medium text-muted">{job.dates}</p>

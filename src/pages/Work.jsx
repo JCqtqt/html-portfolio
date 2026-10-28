@@ -1,18 +1,16 @@
 import { FiArrowUpRight, FiCheck } from "react-icons/fi";
 import { projects } from "../data/projects";
+import PageBanner from "../components/PageBanner";
 
 export default function Work() {
   return (
     <>
-      <section className="container-x pb-10 pt-14 md:pt-20">
-        <p className="eyebrow">Work</p>
-        <h1 className="mt-3 max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl">
-          Real tools, built for a real coffee shop.
-        </h1>
-        <p className="mt-5 max-w-2xl text-lg text-muted">
-          Live projects that The Cup of Faith team and their customers use day to day.
-        </p>
-      </section>
+      <PageBanner
+        eyebrow="// 02 · Work"
+        title="Real tools, built for a real coffee shop."
+        text="Live projects that The Cup of Faith team and their customers use day to day."
+        code="$ ls ./projects  →  2 live"
+      />
 
       <div className="container-x flex flex-col gap-24">
         {projects.map((p, i) => (

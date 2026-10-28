@@ -36,6 +36,7 @@
   .btn-dark { @apply btn bg-[#0A0A0A] text-accent hover:bg-[#262626] dark:bg-accent dark:text-[#0A0A0A] dark:hover:bg-[#FFE04D]; }
   .btn-ghost { @apply btn border border-line bg-card text-ink hover:border-ink/40; }
   .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.18em] text-muted; }
+  .eyebrow::before { content: "// "; @apply text-[#B89800] dark:text-accent; }
   .chip { @apply rounded-full border border-line bg-card px-3 py-1 text-xs font-medium text-muted; }
 }
 
