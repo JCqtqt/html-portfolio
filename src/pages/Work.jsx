@@ -7,9 +7,9 @@ export default function Work() {
     <>
       <PageBanner
         eyebrow="// 02 · Work"
-        title="Real tools, built for a real coffee shop."
-        text="Live projects that The Cup of Faith team and their customers use day to day."
-        code="$ ls ./projects  →  2 live"
+        title="Real tools, built for real people."
+        text="Live projects used day to day, from The Cup of Faith team and their customers to my own budget."
+        code="$ ls ./projects  →  3 live"
       />
 
       <div className="container-x flex flex-col gap-24">
